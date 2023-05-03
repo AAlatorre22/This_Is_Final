@@ -15,52 +15,65 @@
 
     .jumbotron {
         background-color: #2980B9;
-        color: white;
+        color: yellow;
         text-align: center;
         padding: 100px;
         border-radius: 30px;
-        box-shadow: 15px 15px 10px black;
+        box-shadow: 20px 20px 15px black;
+        max-width:contain;
+        max-height: auto;
+        margin-right: 30px;
+        margin-left: 30px;
+
     }
 
         .jumbotron h1 {
             font-size: 4rem;
             font-weight: bold;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+            font-family: Candara, sans-serif;
+            text-shadow: 5px 5px 2px black;
         }
-
-    .btn-film {
-        background-color: #E74C3C;
-        color: white;
-        font-size: 2rem;
-        border-radius: 50%;
-        padding: 50px;
-        margin: 50px;
-        box-shadow: 15px 15px 10px black;
-        transition: all 0.2s ease-in-out;
-    }
-
-        .btn-film:hover {
-            transform: rotate(360deg);
+        .jumbotron h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px; 
+            font-family: Candara, sans-serif;
+            text-shadow: 5px 5px 2px black;
+        }
+        .jumbotron p {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-family: Candara, sans-serif;
+            text-shadow: 5px 5px 2px black;
         }
 
     .hidden {
         display: none;
     }
+
+    #generateMovie:hover {
+        transform: scale(1.25);
+    }
+
+    #generatingMessage{
+        padding-top: 25px;
+    }
+
 </style>
 
 <div class="jumbotron">
-    <h1>What Movie Should You Watch Next?</h1>
-    <p>Press the button to find out!</p>
+    <h1>Top 100 ranked movies!</h1>
+    <h2>What Movie Should You Watch Next?</h2>
+    <p>Press the clapper to find out!</p>
 
     <form method="get" action="@Url.Action("Index", "Movie")" id="movieForm">
-        <button type="button" class="btn-film" id="generateMovie">
-            <i class="fa fa-film"></i>
-        </button>
+        <img src="~/images/clapperboard.jpg" alt="Generate Movie" id="generateMovie" style="cursor: pointer; width: 100px; height: 100px;" />
         <p id="generatingMessage" class="hidden">Generating your next movie...</p>
     </form>
 </div>
 
-<!-- Add JavaScript code to handle button click and form submission -->
 <script>
     $(document).ready(function () {
         $("#generateMovie").on("click", function () {
@@ -71,4 +84,3 @@
         });
     });
 </script>
-
